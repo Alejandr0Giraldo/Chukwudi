@@ -38,18 +38,30 @@ function App() {
         </article>
         <article>
           <div className='m-6 flex space-x-16'>
-              <div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 rounded-full cursor-pointer '>
-                <div className='bg-white rounded-full w-fit p-3 '>
+              <div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 rounded-full cursor-pointer  '>
+                <div className='bg-white rounded-full w-fit p-3  border-2'>
                   <img src="../icons/701965.svg" alt="" className=' w-12'/>
                 </div>
                 <p className=' my-4'>All</p>
               </div>
-              <div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 rounded-full cursor-pointer '>
-                <div className='bg-white rounded-full w-fit p-3 '>
-                  <img src="../icons/701965.svg" alt="" className=' w-12'/>
+              <div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 rounded-full cursor-pointer border-black '>
+                <div className='bg-white rounded-full w-fit p-3  border-2'>
+                  <img src="../icons/701965.svg" alt="" className=' w-12 '/>
                 </div>
                 <p className=' my-4'>All</p>
               </div>
+          </div>
+        </article>
+        <article>
+          <div className='m-6'>
+            <div className='flex items-end '>
+              <span className='bg-slate-400 absolute w-20 rounded-tr-xl rounded-bl-xl flex justify-center p-2'>time min </span>
+              <img src="../images/pexels-photo-262959.jpeg" alt="" className='w-52 rounded-2xl ' />
+            </div>
+            <div>
+              <span>Bagel story</span>
+              <span><img src="../icons/149220.svg" alt="" className='w-3'/></span>
+            </div>
           </div>
         </article>
       </section>
