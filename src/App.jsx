@@ -4,6 +4,15 @@ function App() {
   return (
     <>
       <section >
+        <button class="btn">
+          <span className="bg-black">
+            <svg viewBox="0 0 175 80" width="40" height="40">
+              <rect width="80" height="15"  rx="10"></rect>
+              <rect y="30" width="80" height="15"  rx="10"></rect>
+              <rect y="60" width="80" height="15"  rx="10"></rect>
+          </svg>
+          </span>
+      </button>
         <article >
           <div className='h-96 w-auto bg-zinc-200 flex m-6 place-content-between rounded-3xl '>
             <div className='ml-6 '>
