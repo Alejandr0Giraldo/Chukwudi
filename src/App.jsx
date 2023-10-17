@@ -1,18 +1,49 @@
 import './App.css';
+import  { useState } from 'react';
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
-      <section >
-        <button class="btn">
-          <span className="bg-black">
-            <svg viewBox="0 0 175 80" width="40" height="40">
-              <rect width="80" height="15"  rx="10"></rect>
-              <rect y="30" width="80" height="15"  rx="10"></rect>
-              <rect y="60" width="80" height="15"  rx="10"></rect>
-          </svg>
-          </span>
-      </button>
+      <section>
+        <div className='flex items-center m-6 pb-6'>
+          <div className="relative">
+            <button
+                className="text-black p-2 focus:outline-none"
+                onClick={toggleMenu}
+            >
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+              >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="flex items-center justify-center p-5">
+            <div className='rounded-lg bg-gray-200 p-5'>
+              <div className='flex'>
+                <div className='flex w-10 items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-white p-5'>
+                  <img src='../icons/126474.svg' alt='' className='pointer-events-none absolute w-5 fill-gray-500 transition'/>
+                </div>
+                <input type='text' className='w-full max-w-[160px] bg-white pl-2 text-base font-semibold outline-0' placeholder='Search'/>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <article >
           <div className='h-96 w-auto bg-zinc-200 flex m-6 place-content-between rounded-3xl '>
             <div className='ml-6 '>
