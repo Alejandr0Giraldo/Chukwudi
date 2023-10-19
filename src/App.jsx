@@ -1,8 +1,9 @@
 import './App.css';
 import  { useState } from 'react';
-
+import categories from '../categories.json';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  console.log(categories)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -10,7 +11,7 @@ function App() {
   return (
     <>
       <div className='flex'>
-        <section>
+        <section className='w-4/5'>
           <div className='flex items-center m-6 pb-6'>
             <div className="relative">
               <button
@@ -82,6 +83,7 @@ function App() {
           </article>
           <article>
             <div className='m-6 flex space-x-16'>
+
               <div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 rounded-full cursor-pointer  '>
                 <div className='bg-white rounded-full w-fit p-3  border-2'>
                   <img src="../icons/701965.svg" alt="" className=' w-12'/>
@@ -109,23 +111,38 @@ function App() {
             </div>
           </article>
         </section>
-        <section className=''>
+        <section className='w-1/5'>
           <div className='bg-gray-100 w-full h-full p-4 '>
             <div className=''>
-              <div className='flex flex-row-reverse'>
-                <div className='bg-gray-500 w-3'>
+              <div className='flex flex-row-reverse p-4 m-6 items-center justify-items-end'>
+                <div className='bg-amber-200 rounded-2xl m-4 p-5'>
                   <span>3</span>
                 </div>
-                <div className=' '>
-                  <img src='../icons/747376.svg' alt='' className='w-3'/>
-                </div>
-                <div>
-
+                <div className=' m-6  '>
+                  <img src='../icons/747376.svg' alt='' className='w-6'/>
                 </div>
               </div>
             </div>
             <div>
-              <h1>MY ORDER</h1>
+              <div className='text-4xl mb-6'>
+                <p className=''>My 😉 </p>
+                <p>Order</p>
+              </div>
+            </div>
+            <div className='p-6'>
+              <div className='bg-blue-700 rounded-2xl w-full p-5'>
+                <div className='flex justify-between pb-6 text-slate-200'>
+                  <p>Direction</p>
+                  <a href='#' className='text-amber-300'>Edit</a>
+                </div>
+                <div className='flex justify-between items-center pb-5'>
+                  <div className='bg-amber-500/60 w-9 p-2 rounded-xl h-full'>
+                    <img src='../icons/149316.svg' alt='' className='w-8'/>
+                  </div>
+                  <p className='text-slate-200'>35 mins</p>
+                  <a href='#' className='text-amber-300'>Chose time</a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
