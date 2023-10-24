@@ -7,7 +7,7 @@
     {
         "id": 2,
         "name": "Pizza",
-        "icon": "https://image.flaticon.com/icons/svg/599/599995.svg"
+        "icon": "'https://image.flaticon.com/icons/svg/599/599995.svg'"
     },
     {
         "id": 3,

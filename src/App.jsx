@@ -1,8 +1,8 @@
 import './App.css';
-import  { useState } from 'react';
+import React, { useState } from 'react';
 import categories from '../categories.json';
 import Categories from './Components/categories/index.jsx';
-import products from './Components/products/index.jsx';
+import products from '../products.json'
 import Products from './Components/products/index.jsx';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,48 +85,35 @@ function App() {
             </div>
           </article>
           <article>
-            <div className='m-6 flex space-x-16'>
-
-              {/*<div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 rounded-full cursor-pointer  '>*/}
-              {/*  <div className='bg-white rounded-full w-fit p-3  border-2'>*/}
-              {/*    <img src="../icons/701965.svg" alt="" className=' w-12'/>*/}
-              {/*  </div>*/}
-              {/*  <p className=' my-4'>All</p>*/}
-              {/*</div>*/}
-              <div className="flex flex-wrap justify-center">
+            <div className='m-6 flex items-center space-x-16'>
+              <div className="flex flex-wrap justify-center items-center ">
                 {categories.map((item) => (
                     <Categories key={item.id} name={item.name} icon={item.icon} id={item.id} />
                 ))}
               </div>
-              <div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 rounded-full cursor-pointer border-black '>
-                <div className='bg-white rounded-full w-fit p-3  border-2'>
-                  <img src="../icons/701965.svg" alt="" className=' w-12 '/>
-                </div>
-                <p className=' my-4'>All</p>
+              <div className=' bg-slate-50 hover:bg-amber-300 flex items-center h-4 w-8 p-3 rounded-full cursor-pointer  '>
+                <img src='../icons/118740.svg' alt='' className='w-3'/>
               </div>
             </div>
           </article>
           <article>
-            {/*<div className='m-6'>*/}
-            {/*  <div className='flex items-end '>*/}
-            {/*    <span className='bg-slate-400 absolute w-20 rounded-tr-xl rounded-bl-xl flex justify-center p-2'>time min </span>*/}
-            {/*    <img src="../images/pexels-photo-262959.jpeg" alt="" className='w-52 rounded-2xl ' />*/}
-            {/*  </div>*/}
-            {/*  <div>*/}
-            {/*    <span>Bagel story</span>*/}
-            {/*    <span><img src="../icons/149220.svg" alt="" className='w-3'/></span>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
               {products.map((item, index) => (
-                  <Products key={index} {...item} />
+                  <Products
+                      key={index}
+                      name={item.name}
+                      qualification={item.qualification}
+                      time={item.time}
+                      price={item.price}
+                      image={item.image}
+                  />
               ))}
             </div>
           </article>
         </section>
         <section className='w-1/5'>
-          <div className='bg-gray-100 w-full h-full p-4 '>
-            <div className=''>
+          <div className='bg-gray-100 w-full h-full p-0 '>
+            <div className='p-4'>
               <div className='flex flex-row-reverse p-4 m-6 items-center justify-items-end'>
                 <div className='bg-amber-200 rounded-2xl m-4 p-5'>
                   <span>3</span>
@@ -136,7 +123,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className='p-4'>
               <div className='text-4xl mb-6'>
                 <p className=''>My 😉 </p>
                 <p>Order</p>
@@ -152,12 +139,40 @@ function App() {
                   <div className='bg-amber-500/60 w-9 p-2 rounded-xl h-full'>
                     <img src='../icons/149316.svg' alt='' className='w-8'/>
                   </div>
-                  <p className='text-slate-200'>35 mins</p>
+                  <p className='text-slate-200'>35 min</p>
                   <a href='#' className='text-amber-300'>Chose time</a>
                 </div>
               </div>
             </div>
+            <div className='p-2'>
+              <div className='m-4 w-full flex'>
+                <img src='../images/pexels-photo-156114.jpeg' alt='' className='w-20 rounded-lg'/>
+                <p className='p-1 ml-2'>1 x</p>
+                <p className='p-1'>beach burger</p>
+                <p className='p-1'>$ 14.99 </p>
+              </div>
+            </div>
+            <div className=' '>
+              <div className='flex justify-between p-4'>
+                <p className=''>Total: </p>
+                <p>$1500</p>
+              </div>
+              <div className='flex justify-between'>
+                <div className='flex-col'>
+                  <p className='p-4 -mb-3'>Persons</p>
+                  <div className='flex border-black rounded-2xl border-2 w-fit ml-4 mb-0 '>
+                    <button className='p-2'>+</button>
+                    <div className='p-2'> 1</div>
+                    <button className='p-2'>-</button>
+                  </div>
+                </div>
+                <div className='bg-amber-200 w-fit flex rounded-l-2xl '>
+                  <button className='p-6 font-bold flex items-center'>Checkout <img src='../icons/109617.svg' alt='' className='w-3 ml-4 mr-6'/></button>
+                </div>
+              </div>
+            </div>
           </div>
+
         </section>
       </div>
     </>
