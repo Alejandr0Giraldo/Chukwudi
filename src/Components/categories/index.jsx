@@ -1,6 +1,6 @@
 import React from 'react';
 
-const  Categories = ({ name, icon}) => {
+const  Categories = ({ name, icon,}) => {
     return(
         <div className=' bg-slate-50 hover:bg-amber-300 flex flex-col items-center p-3 m-3 rounded-full cursor-pointer  '>
             <div className='bg-white rounded-full w-fit p-3  border-2'>

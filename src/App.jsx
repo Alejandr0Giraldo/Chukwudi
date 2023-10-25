@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
-import categories from '../categories.json';
 import Categories from './Components/categories/index.jsx';
-import products from '../products.json'
+import categories from '../categories.json';
+import products from '../products.json';
 import Products from './Components/products/index.jsx';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +15,10 @@ function App() {
     <>
       <div className='flex'>
         <section className='w-4/5'>
-          <div className='flex items-center m-6 pb-6'>
+          <div className='flex items-center m-6 mt-0'>
             <div className="relative">
               <button
-                  className="text-black p-2 focus:outline-none"
+                  className="text-black p-6 focus:outline-none"
                   onClick={toggleMenu}
               >
                 <svg
@@ -37,16 +37,16 @@ function App() {
                 </svg>
               </button>
             </div>
-            <div className='m-8 font-bold'>
+            <div className='m-6 font-bold text-2xl'>
               <h1>Chukwudi</h1>
             </div>
-            <div className="flex items-center justify-center p-5">
-              <div className='rounded-lg  p-5 '>
-                <div className='flex '>
-                  <div className='flex w-10 items-center  bg-gray-200 justify-center rounded-tl-lg rounded-bl-lg border-r  p-5'>
-                    <img src='../icons/126474.svg' alt='' className='pointer-events-none absolute w-5 transition'/>
+            <div className="flex items-center justify-center p-4">
+              <div className='rounded-lg  p-4 '>
+                <div className='flex w-'>
+                  <div className='flex w-10 items-center  bg-gray-100 justify-center rounded-tl-lg rounded-bl-lg border-r  p-5'>
+                    <img src='../icons/126474.svg' alt='' className='pointer-events-none absolute w-5 '/>
                   </div>
-                  <input type='text' className=' bg-gray-200 rounded-r-lg pl-2 text-base font-semibold outline-0' placeholder='Search'/>
+                  <input type='text' className=' bg-gray-100 rounded-r-lg pl-2 text-base  outline-0' placeholder='Search'/>
                 </div>
               </div>
             </div>
@@ -98,14 +98,15 @@ function App() {
           </article>
           <article>
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
-              {products.map((item, index) => (
+              {products.map((item) => (
                   <Products
-                      key={index}
+                      key={item.id}
                       name={item.name}
                       qualification={item.qualification}
                       time={item.time}
                       price={item.price}
                       image={item.image}
+                      id_category={item.id_category}
                   />
               ))}
             </div>
@@ -145,6 +146,18 @@ function App() {
               </div>
             </div>
             <div className='p-2'>
+              <div className='m-4 w-full flex'>
+                <img src='../images/pexels-photo-156114.jpeg' alt='' className='w-20 rounded-lg'/>
+                <p className='p-1 ml-2'>1 x</p>
+                <p className='p-1'>beach burger</p>
+                <p className='p-1'>$ 14.99 </p>
+              </div>
+              <div className='m-4 w-full flex'>
+                <img src='../images/pexels-photo-156114.jpeg' alt='' className='w-20 rounded-lg'/>
+                <p className='p-1 ml-2'>1 x</p>
+                <p className='p-1'>beach burger</p>
+                <p className='p-1'>$ 14.99 </p>
+              </div>
               <div className='m-4 w-full flex'>
                 <img src='../images/pexels-photo-156114.jpeg' alt='' className='w-20 rounded-lg'/>
                 <p className='p-1 ml-2'>1 x</p>

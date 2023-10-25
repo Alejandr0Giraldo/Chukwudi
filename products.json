@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "id_category": 5,
         "name": "Filete de ternera con salsa",
         "qualification": 4.9,
         "time": "25-30min",
@@ -9,6 +10,7 @@
     },
     {
         "id": 2,
+        "id_category": 6,
         "name": "Desayuno de primer plano lácteos",
         "qualification": 4.7,
         "time": "20-25min",
@@ -17,6 +19,7 @@
     },
     {
         "id": 3,
+        "id_category": 4,
         "name": "Burrito de pollo",
         "qualification": 4.6,
         "time": "25-30min",
@@ -25,6 +28,7 @@
     },
     {
         "id": 4,
+        "id_category": 7,
         "name": "Plato de salmón",
         "qualification": 4.5,
         "time": "25-30min",
@@ -33,6 +37,7 @@
     },
     {
         "id": 5,
+        "id_category": 6,
         "name": "Postre",
         "qualification": 4.8,
         "time": "15-20min",
@@ -41,6 +46,7 @@
     },
     {
         "id": 6,
+        "id_category": 6,
         "name": "Sándwich servido en la tabla de cortar",
         "qualification": 4.7,
         "time": "10-15min",
@@ -49,6 +55,7 @@
     },
     {
         "id": 7,
+        "id_category": 7,
         "name": "Plato de aguacate cocido",
         "qualification": 4.4,
         "time": "15-25min",
@@ -57,6 +64,7 @@
     },
     {
         "id": 8,
+        "id_category": 4,
         "name": "Hamburguesa",
         "qualification": 4.6,
         "time": "10-15min",
