@@ -10,10 +10,10 @@ const  Product = ({ name, qualification, time, price, image, id_category }) => {
         }
     )
     return(
-        <div className='m-6'>
-            <div className='flex items-end '>
+        <div className='w-full '>
+            <div className='flex items-end w-full overflow-hidden '>
                 <span className='bg-gray-100 absolute w-20 rounded-tr-xl rounded-bl-xl flex justify-center p-2'>{time} </span>
-                <img src={image} alt="" className='w-52 rounded-2xl ' />
+                <img src={image} alt="" className=' rounded-2xl w-9/12 ' />
             </div>
             <div className='p-2'>
                 <span className='text-ellipsis '>{name}</span>

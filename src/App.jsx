@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Categories from './Components/categories/index.jsx';
 import categories from '../categories.json';
 import products from '../products.json';
@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       <div className='flex'>
-        <section className='w-4/5'>
-          <div className='flex items-center m-6 mt-0'>
+        <section className='w-4/5 '>
+          <div className='flex items-center m-6 mt-0 '>
             <div className="relative">
               <button
                   className="text-black p-6 focus:outline-none"
@@ -37,10 +37,10 @@ function App() {
                 </svg>
               </button>
             </div>
-            <div className='m-6 font-bold text-2xl'>
+            <div className='m-6 font-bold text-2xl max-md:m-0'>
               <h1>Chukwudi</h1>
             </div>
-            <div className="flex items-center justify-center p-4">
+            <diasdsdav className="flex items-center justify-center p-4">
               <div className='rounded-lg  p-4 '>
                 <div className='flex w-'>
                   <div className='flex w-10 items-center  bg-gray-100 justify-center rounded-tl-lg rounded-bl-lg border-r  p-5'>
@@ -49,13 +49,16 @@ function App() {
                   <input type='text' className=' bg-gray-100 rounded-r-lg pl-2 text-base  outline-0' placeholder='Search'/>
                 </div>
               </div>
+            </diasdsdav>
+            <div>
+              <img className='md:hidden w-10 m-10' src='../icons/shopping-cart.png' alt=''/>
             </div>
           </div>
 
           <article >
-            <div className='h-96 w-auto bg-zinc-200 flex m-6 place-content-between rounded-3xl '>
+            <div className='h-96 w-auto bg-zinc-200 flex m-6 place-content-between rounded-3xl max-md: max-md:w-full max-md:mr-0'>
               <div className='ml-6 '>
-                <img src="../images/headerimage.png" alt="" className='overflow-visible -mt-10' />
+                <img src="../images/headerimage.png" alt="" className='overflow-visible -mt-10 max-md:hidden' />
               </div>
               <div className='flex flex-col items-start justify-center'>
                 <p className='flex text-3xl '>$0 delivery for 30 days!
@@ -97,7 +100,7 @@ function App() {
             </div>
           </article>
           <article>
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 m-4 max-w-full object-cover overflow-hidden">
               {products.map((item) => (
                   <Products
                       key={item.id}
@@ -112,14 +115,14 @@ function App() {
             </div>
           </article>
         </section>
-        <section className='w-1/5'>
-          <div className='bg-gray-100 w-full h-full p-0 '>
-            <div className='p-4'>
-              <div className='flex flex-row-reverse p-4 m-6 items-center justify-items-end'>
-                <div className='bg-amber-200 rounded-2xl m-4 p-5'>
-                  <span>3</span>
-                </div>
-                <div className=' m-6  '>
+        <section className='w-1/5 max-md:hidden '>
+          <div className='bg-gray-100 -ml-0'>
+            <div className='flex flex-row-reverse '>
+              <div className=' '>
+                <span className=''>3</span>
+              </div>
+              <div className=''>
+                <div className=' '>
                   <img src='../icons/747376.svg' alt='' className='w-6'/>
                 </div>
               </div>
