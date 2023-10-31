@@ -30,7 +30,7 @@ function App() {
             </div>
           </div>
           <article className=''>
-            <input className="block w-full m-6 p-3 border border-gray-200 rounded-full focus:outline-none max-md:w-auto md:hidden" placeholder="search" type="text"/>
+            <input className="block  m-6 p-3 border border-gray-200 rounded-full focus:outline-none w-5/6 md:hidden" placeholder="search" type="text"/>
             <div className=' w-full bg-zinc-200 flex m-6 place-content-between rounded-3xl max-md:w-auto '>
               <div className='ml-6 '>
                 <img src="../images/headerimage.png" alt="" className='overflow-visible -mt-10 max-lg:hidden' />
