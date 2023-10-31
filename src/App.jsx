@@ -13,9 +13,9 @@ function App() {
   };
   return (
     <>
-      <div className='flex'>
-        <section className='w-4/5 '>
-          <div className='flex items-center m-6 mt-0 '>
+      <div className='flex '>
+        <section  className='w-4/5 max-md:w-full '>
+          <div className='flex items-center m-6 mt-0 max-md:w-auto max-sm:w-auto '>
             <div className="relative">
               <button
                   className="text-black p-6 focus:outline-none"
@@ -37,30 +37,21 @@ function App() {
                 </svg>
               </button>
             </div>
-            <div className='m-6 font-bold text-2xl max-md:m-0'>
-              <h1>Chukwudi</h1>
+            <div className='m-6 font-bold text-2xl'>
+              <h1 className=''>Chukwudi</h1>
             </div>
-            <diasdsdav className="flex items-center justify-center p-4">
-              <div className='rounded-lg  p-4 '>
-                <div className='flex w-'>
-                  <div className='flex w-10 items-center  bg-gray-100 justify-center rounded-tl-lg rounded-bl-lg border-r  p-5'>
-                    <img src='../icons/126474.svg' alt='' className='pointer-events-none absolute w-5 '/>
-                  </div>
-                  <input type='text' className=' bg-gray-100 rounded-r-lg pl-2 text-base  outline-0' placeholder='Search'/>
-                </div>
-              </div>
-            </diasdsdav>
-            <div>
-              <img className='md:hidden w-10 m-10' src='../icons/shopping-cart.png' alt=''/>
+            <input className="block w-full m-2 px-6 py-3 text-black border border-gray-200 rounded-full focus:outline-none max-md:hidden" placeholder="search" type="text"/>
+            <div className='w-8 max-md:m-auto'>
+              <img className='md:hidden ' src='../icons/shopping-cart.png' alt=''/>
             </div>
           </div>
-
-          <article >
-            <div className='h-96 w-auto bg-zinc-200 flex m-6 place-content-between rounded-3xl max-md: max-md:w-full max-md:mr-0'>
+          <article className=''>
+            <input className="block w-full m-6 p-3 border border-gray-200 rounded-full focus:outline-none max-md:w-auto md:hidden" placeholder="search" type="text"/>
+            <div className=' w-full bg-zinc-200 flex m-6 place-content-between rounded-3xl max-md:w-auto '>
               <div className='ml-6 '>
-                <img src="../images/headerimage.png" alt="" className='overflow-visible -mt-10 max-md:hidden' />
+                <img src="../images/headerimage.png" alt="" className='overflow-visible -mt-10 max-lg:hidden' />
               </div>
-              <div className='flex flex-col items-start justify-center'>
+              <div className='flex flex-col justify-center items-center'>
                 <p className='flex text-3xl '>$0 delivery for 30 days!
                   <img src="../images/d.png" alt="" className='flex h-10 ml-5' />
                 </p>
@@ -88,14 +79,14 @@ function App() {
             </div>
           </article>
           <article>
-            <div className='m-6 flex items-center space-x-16'>
-              <div className="flex flex-wrap justify-center items-center ">
+            <div className='m-6 flex items-center space-x-16 max-lg:grid max-md: grid-cols-2'>
+              <div onClick={toggleMenu} className="flex flex-wrap justify-center items-center ">
                 {categories.map((item) => (
                     <Categories key={item.id} name={item.name} icon={item.icon} id={item.id} />
                 ))}
               </div>
-              <div className=' bg-slate-50 hover:bg-amber-300 flex items-center h-4 w-8 p-3 rounded-full cursor-pointer  '>
-                <img src='../icons/118740.svg' alt='' className='w-3'/>
+              <div className=' bg-slate-50 hover:bg-amber-300 flex items-center w-fit rounded-xl cursor-pointer '>
+                <img src='../icons/118740.svg' alt='' className='w-20 p-2'/>
               </div>
             </div>
           </article>
@@ -115,7 +106,7 @@ function App() {
             </div>
           </article>
         </section>
-        <section className='w-1/5 max-md:hidden '>
+        <section className='w-1/5 max-md:hidden ml-10  '>
           <div className='bg-gray-100 -ml-0'>
             <div className='flex flex-row-reverse '>
               <div className=' '>
