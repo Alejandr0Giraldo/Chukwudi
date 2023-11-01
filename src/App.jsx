@@ -68,13 +68,6 @@ function App() {
             <div className="">
               <CategorySlide  categories={categories} />
             </div>
-              {/*<div className='m-6 flex items-center space-x-16 max-lg:grid max-md: grid-cols-2'>*/}
-              {/*  <div className="flex flex-wrap justify-center items-center ">*/}
-              {/*    {categories.map((item) => (*/}
-              {/*        <Categories key={item.id} name={item.name} icon={item.icon} id={item.id} />*/}
-              {/*    ))}*/}
-              {/*  </div>*/}
-              {/*</div>*/}
           </article>
           <article>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 m-4 max-w-full object-cover overflow-hidden">
