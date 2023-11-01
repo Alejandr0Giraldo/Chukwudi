@@ -4,7 +4,7 @@ import categories from '../../../categories.json'
 const  Product = ({ name, qualification, time, price, image, id_category }) => {
     let name_category = ''
     categories.map((item) => {
-            if (id_category == item.id ){
+            if (id_category === item.id ){
                 name_category = item.name
             }
         }
@@ -13,7 +13,7 @@ const  Product = ({ name, qualification, time, price, image, id_category }) => {
         <div className='w-full '>
             <div className='flex items-end w-full overflow-hidden '>
                 <span className='bg-gray-100 absolute w-20 rounded-tr-xl rounded-bl-xl flex justify-center p-2'>{time} </span>
-                <img src={image} alt="" className=' rounded-2xl w-9/12 ' />
+                <img src={image} alt="" className=' rounded-2xl w-9/12 cursor-pointer' />
             </div>
             <div className='p-2'>
                 <span className='text-ellipsis '>{name}</span>

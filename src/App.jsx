@@ -1,9 +1,11 @@
 import './App.css';
-import  { useState } from 'react';
-import Categories from './Components/categories/index.jsx';
+import React, { useState } from 'react';
 import categories from '../categories.json';
 import products from '../products.json';
 import Products from './Components/products/index.jsx';
+import CategorySlide from './Components/CategorySlide/index.jsx'
+
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
@@ -22,7 +24,7 @@ function App() {
               </button>
             </div>
             <div className='flex '>
-              <h1 className='font-bold text-2xl'>Chukwudi</h1>
+              <h1 className='font-bold text-2xl mr-4'>Chukwudi</h1>
             </div>
             <input className="block w-full m-2 px-6 py-3 text-black border border-gray-200 rounded-full focus:outline-none max-md:hidden" placeholder="search" type="text"/>
             <div className='w-8 mr-4'>
@@ -62,17 +64,17 @@ function App() {
               </button>
             </div>
           </article>
-          <article>
-            <div className='m-6 flex items-center space-x-16 max-lg:grid max-md: grid-cols-2'>
-              <div onClick={toggleMenu} className="flex flex-wrap justify-center items-center ">
-                {categories.map((item) => (
-                    <Categories key={item.id} name={item.name} icon={item.icon} id={item.id} />
-                ))}
-              </div>
-              <div className=' bg-slate-50 hover:bg-amber-300 flex items-center w-fit rounded-xl cursor-pointer '>
-                <img src='../icons/118740.svg' alt='' className='w-20 p-2'/>
-              </div>
+          <article >
+            <div className="">
+              <CategorySlide  categories={categories} />
             </div>
+              {/*<div className='m-6 flex items-center space-x-16 max-lg:grid max-md: grid-cols-2'>*/}
+              {/*  <div className="flex flex-wrap justify-center items-center ">*/}
+              {/*    {categories.map((item) => (*/}
+              {/*        <Categories key={item.id} name={item.name} icon={item.icon} id={item.id} />*/}
+              {/*    ))}*/}
+              {/*  </div>*/}
+              {/*</div>*/}
           </article>
           <article>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 m-4 max-w-full object-cover overflow-hidden">
