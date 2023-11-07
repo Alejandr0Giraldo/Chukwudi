@@ -1,6 +1,7 @@
 import React from "react";
 
 const MyOrder = () => {
+    return (
     <section className='w-1/5 max-md:hidden ml-10  '>
         <div className='bg-gray-100 -ml-0 h-full'>
             <div className='w-auto flex flex-row-reverse items-center justify-self-end '>
@@ -65,6 +66,7 @@ const MyOrder = () => {
         </div>
 
     </section>
+    )
 
 }
 
