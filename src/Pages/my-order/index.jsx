@@ -58,7 +58,7 @@ const MyOrder = () => {
                 </div>
                 <div className='flex justify-between'>
 
-                    <div className='bg-amber-200 w-screen flex rounded-full '>
+                    <div className='bg-amber-200 w-screen flex rounded-full m-6'>
                         <button className='p-6 font-bold flex items-center'>Checkout <img src='../icons/109617.svg' alt='' className='w-3 ml-4 mr-6'/></button>
                     </div>
                 </div>

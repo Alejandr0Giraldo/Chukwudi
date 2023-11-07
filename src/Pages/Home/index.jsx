@@ -5,6 +5,7 @@ import products from "../../../products.json";
 import Products from "../../Components/products/index.jsx";
 
 const Home = () => {
+
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
         setIsOpen(!isOpen);
