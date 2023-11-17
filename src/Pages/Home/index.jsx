@@ -1,32 +1,33 @@
-import React, {useState} from "react";
+import {useContext} from "react";
+import { ShoppingCartContext } from "../../Context/index.jsx";
 import CategorySlide from "../../Components/CategorySlide/index.jsx";
 import categories from "../../../categories.json";
 import products from "../../../products.json";
 import Products from "../../Components/products/index.jsx";
 
 const Home = () => {
+    const context = useContext(ShoppingCartContext)
 
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
     return (
     <section  className='w-4/5 max-md:w-full '>
         <div className='flex items-center justify-between m-4 max-md:w-auto max-sm:w-auto  '>
             <div className="relative">
-                <button className="text-black p-6 focus:outline-none" onClick={toggleMenu} >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}/>
-                    </svg>
-                </button>
             </div>
             <div className='flex '>
                 <h1 className='font-bold text-2xl mr-4'>Chukwudi</h1>
             </div>
-            <input className="block w-full m-2 px-6 py-3 text-black border border-gray-200 rounded-full focus:outline-none max-md:hidden" placeholder="search" type="text"/>
-            <div className='w-8 mr-4'>
-                <img className='md:hidden ' src='../icons/shopping-cart.png' alt='shopping cart'/>
+            <input
+                className="block w-full m-2 px-6 py-3 text-black border border-gray-200 rounded-full focus:outline-none max-md:hidden"
+                placeholder="search" type="text"
+
+            />
+            <div
+                onClick={context.toggleOrder}
+                className='w-12 m-4'>
+                <img className='cursor-pointer' src='../../../icons/shopping-cart.png' alt='shopping cart'/>
             </div>
+
+
         </div>
         <article className=''>
             <input className="block  m-6 p-3 border border-gray-200 rounded-full focus:outline-none w-5/6 md:hidden" placeholder="search" type="text"/>

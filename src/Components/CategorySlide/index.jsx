@@ -11,10 +11,10 @@ const CategorySlide = () => {
             >
                 {categories.map((item) => (
                     // eslint-disable-next-line react/jsx-key
-                    <div className='bg-white w-auto p-2 rounded-full hover:bg-amber-300 '>
+                    <div key={item.id} className='bg-white w-auto p-2 rounded-full hover:bg-amber-300 '>
                         <div className='flex flex-col items-center'>
                             <div className='bg-white overflow-hidden p-2 w-20 rounded-full'>
-                                <img key={item.id} src={item.icon} alt={`${item.name} icon`} className=' '/>
+                                <img  src={item.icon} alt={`${item.name} icon`} className=' '/>
                             </div>
                             <p className=' mt-8 '>{item.name}</p>
                         </div>

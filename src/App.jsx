@@ -8,12 +8,10 @@ import { ShoppingCartProvider } from "./Context/index.jsx";
 function App() {
   return (
       <ShoppingCartProvider>
-          <>
-              <div className='flex'>
-                  <Home />
-                  <MyOrder />
-              </div>
-          </>
+          <div className='flex'>
+              <Home />
+              <MyOrder />
+          </div>
       </ShoppingCartProvider>
 
   )

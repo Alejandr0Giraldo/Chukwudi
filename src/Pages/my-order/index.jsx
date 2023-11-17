@@ -1,8 +1,15 @@
-import React from "react";
+import { ShoppingCartContext } from "../../Context/index.jsx";
+import {useContext} from "react";
 
 const MyOrder = () => {
+    const context = useContext(ShoppingCartContext)
+
+    if (!context.showOrder){
+        return null
+    }
+
     return (
-    <section className='w-1/5 max-md:hidden ml-10  '>
+    <section  className='w-1/4 max-md:hidden ml-10'>
         <div className='bg-gray-100 -ml-0 h-full'>
             <div className='w-auto flex flex-row-reverse items-center justify-self-end '>
                 <div className=' m-4 bg-amber-300 p-4 rounded-xl'>
