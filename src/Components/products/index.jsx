@@ -13,6 +13,8 @@ const  Product = ({ name, qualification, time, price, image, id_category }) => {
     )
     const context = useContext(ShoppingCartContext)
 
+
+
     return(
         <div className='w-5/6 h-60 mb-6'>
             <div className='relative  w-full h-4/5 overflow-hidden cursor-pointer'>

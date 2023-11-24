@@ -5,8 +5,10 @@ import categories from "../../../categories.json";
 import products from "../../../products.json";
 import Products from "../../Components/products/index.jsx";
 
+
 const Home = () => {
     const context = useContext(ShoppingCartContext)
+
 
     return (
     <section  className='w-4/5 max-md:w-full '>
@@ -17,6 +19,8 @@ const Home = () => {
                 <h1 className='font-bold text-2xl mr-4'>Chukwudi</h1>
             </div>
             <input
+                value={context.inputValue}
+                onChange={context.handleInputChange}
                 className="block w-full m-2 px-6 py-3 text-black border border-gray-200 rounded-full focus:outline-none max-md:hidden"
                 placeholder="search" type="text"
 
@@ -30,7 +34,12 @@ const Home = () => {
 
         </div>
         <article className=''>
-            <input className="block  m-6 p-3 border border-gray-200 rounded-full focus:outline-none w-5/6 md:hidden" placeholder="search" type="text"/>
+            <input
+                className="block  m-6 p-3 border border-gray-200 rounded-full focus:outline-none w-5/6 md:hidden"
+                placeholder="search" type="text"
+                value={context.searchProduct}
+                onChange={context.handleSearchChange}
+            />
             <div className=' w-full bg-zinc-200 flex m-6 place-content-between rounded-3xl max-md:w-auto '>
                 <div className='ml-6 '>
                     <img src="../images/headerimage.png" alt="" className='overflow-visible -mt-10 max-lg:hidden' />
@@ -68,17 +77,18 @@ const Home = () => {
             </div>
         </article>
         <article>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 m-4 max-w-full object-cover overflow-hidden">
-                {products.map((item) => (
-                    <Products
-                        key={item.id}
-                        name={item.name}
-                        qualification={item.qualification}
-                        time={item.time}
-                        price={item.price}
-                        image={item.image}
-                        id_category={item.id_category}
-                    />
+            <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 m-4 max-w-full object-cover overflow-hidden">
+                {products.map(item => (
+                <Products
+                    key={item.id}
+                    name={item.name}
+                    qualification={item.qualification}
+                    time={item.time}
+                    price={item.price}
+                    image={item.image}
+                    id_category={item.id_category}
+
+                />
                 ))}
             </div>
         </article>

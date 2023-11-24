@@ -13,7 +13,7 @@ const MyOrder = () => {
         <div className='bg-gray-100 -ml-0 h-full'>
             <div className='w-auto flex flex-row-reverse items-center justify-self-end '>
                 <div className=' m-4 bg-amber-300 p-4 rounded-xl'>
-                    <span className='w-6'>3</span>
+                    <span className='w-6'>{context.setCartProducts.length}</span>
                 </div>
                 <div className=''>
                     <div className=' '>
