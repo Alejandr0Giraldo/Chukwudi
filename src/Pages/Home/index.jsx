@@ -4,6 +4,7 @@ import CategorySlide from "../../Components/CategorySlide/index.jsx";
 import categories from "../../../categories.json";
 import products from "../../../products.json";
 import Products from "../../Components/products/index.jsx";
+import './styles.css'
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
 
 
     return (
-    <section  className='w-4/5 max-md:w-full '>
+    <section  className='section-home'>
         <div className='flex items-center justify-between m-4 max-md:w-auto max-sm:w-auto  '>
             <div className="relative">
             </div>

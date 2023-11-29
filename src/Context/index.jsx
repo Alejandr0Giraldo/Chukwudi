@@ -1,5 +1,5 @@
 
-import {createContext, useEffect, useState} from 'react'
+import {createContext, useState} from 'react'
 
 export const ShoppingCartContext = createContext()
 
@@ -21,9 +21,26 @@ export const ShoppingCartProvider = ({children}) => {
     //amount products
     const [cartProducts, setCartProducts] = useState([])
 
+    //increment products
+    const [amountProduct, setAmountProduct] = useState(0)
+    const incrementAmount = () => {
+        setAmountProduct(amountProduct + 1)
+    }
+    const decrementAmount = () => {
+        if (amountProduct > 0) {
+            setAmountProduct(amountProduct - 1)
+        }
+    }
+
+    // My Order . products
+    const [order, setOrder] = useState([])
+    const addToOrder = (product) => {
+        setOrder([...order, product])
+    }
+
 
     return (
-        < ShoppingCartContext.Provider value={{
+        < ShoppingCartContext.Provider value={{    
             count,
             setCount,
             toggleOrder,
@@ -33,8 +50,14 @@ export const ShoppingCartProvider = ({children}) => {
             setSearchProduct,
             handleSearchChange,
             cartProducts,
-            setCartProducts
-
+            setCartProducts,
+            amountProduct,
+            setAmountProduct,
+            incrementAmount,
+            decrementAmount,
+            order,
+            setOrder,
+            addToOrder,
 
         }}>
             {children}

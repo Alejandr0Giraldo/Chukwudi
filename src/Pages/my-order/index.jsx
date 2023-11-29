@@ -1,60 +1,75 @@
 import { ShoppingCartContext } from "../../Context/index.jsx";
 import {useContext} from "react";
+import Products from "../../Components/products/index.jsx";
+import './styles.css'
+import { Navbar } from '@material-tailwind/react';
 
 const MyOrder = () => {
     const context = useContext(ShoppingCartContext)
+    const currentPath = window.location.pathname
+    let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
+    if (index === 'last') index = context.order?.length - 1
+
+
 
     if (!context.showOrder){
         return null
     }
 
     return (
-    <section  className='w-1/4 max-md:hidden ml-10'>
-        <div className='bg-gray-100 -ml-0 h-full'>
-            <div className='w-auto flex flex-row-reverse items-center justify-self-end '>
-                <div className=' m-4 bg-amber-300 p-4 rounded-xl'>
-                    <span className='w-6'>{context.setCartProducts.length}</span>
+        <aside className='aside'>
+            <Navbar className='navbar'>
+                <div className=' products'>
+                    <span>{context.setCartProducts.length}</span>
                 </div>
-                <div className=''>
-                    <div className=' '>
-                        <img src='../icons/747376.svg' alt='' className='w-6 cursor-pointer'/>
+                <div>
+                    <div className='user' >
+                        <img src='../icons/747376.svg' alt='icon-user' />
                     </div>
                 </div>
-            </div>
-            <div className='p-4'>
-                <div className='text-4xl mb-6'>
+            </Navbar>
+            <div className='my-order'>
+                <div>
                     <p className=''>My 😉 </p>
                     <p>Order</p>
                 </div>
             </div>
-            <div className='p-6'>
-                <div className='bg-blue-700 rounded-2xl w-full p-5'>
-                    <div className='flex justify-between pb-6 text-slate-200'>
+            <div className='section-direction'>
+                    <div className='direction'>
                         <p>Direction</p>
-                        <a href='#' className='text-amber-300'>Edit</a>
+                        <a href='#' className='edit'>Edit</a>
                     </div>
-                    <div className='flex justify-between items-center pb-5'>
-                        <div className='bg-amber-500/60 w-9 p-2 rounded-xl h-full'>
-                            <img src='../icons/149316.svg' alt='' className='w-8'/>
+                    <div className='container-time'>
+                        <div className='container-time-icon'>
+                            <img src='../icons/149316.svg' alt='' className='time-icon'/>
                         </div>
-                        <p className='text-slate-200'>35 min</p>
-                        <a href='#' className='text-amber-300'>Chose time</a>
+                        <p className=''>35 min</p>
+                        <a href='#' className=''>Chose time</a>
                     </div>
-                </div>
             </div>
             <div className='p-2 flex'>
                 <div className='m-4 w-full flex'>
-                    <img src='../images/pexels-photo-156114.jpeg' alt='' className='w-20 rounded-lg'/>
-                    <p className='p-1 ml-2'>1 x</p>
-                    <p className='p-1'>beach burger</p>
-                    <p className='p-1'>$ 14.99 </p>
+                    {
+                        context.order.map((item) => (
+                            <Products
+                                key={item.id}
+                                name={item.name}
+                                qualification={item.qualification}
+                                time={item.time}
+                                price={item.price}
+                                image={item.image}
+                                id_category={item.id_category}
+
+                            />
+                        ))
+                    }
                 </div>
                 <div className='flex-col'>
                     <p className='p-4 -mb-3'>Persons</p>
                     <div className='flex border-black rounded-2xl border-2 w-fit ml-4 mb-0 '>
-                        <button className='p-2'>+</button>
-                        <div className='p-2'> 1</div>
-                        <button className='p-2'>-</button>
+                        <button className='p-2' onClick={context.incrementAmount}>+</button>
+                        <div className='p-2'> {context.amountProduct}</div>
+                        <button className='p-2' onClick={context.decrementAmount}>-</button>
                     </div>
                 </div>
             </div>
@@ -70,9 +85,7 @@ const MyOrder = () => {
                     </div>
                 </div>
             </div>
-        </div>
-
-    </section>
+        </aside>
     )
 
 }
