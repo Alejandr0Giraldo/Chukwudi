@@ -8,7 +8,7 @@ export const ShoppingCartProvider = ({children}) => {
 
     const [count, setCount] = useState(0)
 
-    const [showOrder, setShowOrder] = useState(true)
+    const [showOrder, setShowOrder] = useState(false)
     const toggleOrder = () => {
         setShowOrder(!showOrder)
     }

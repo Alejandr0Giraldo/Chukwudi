@@ -1,9 +1,8 @@
 import { ShoppingCartContext } from "../../Context/index.jsx";
 import {useContext} from "react";
 import Products from "../../Components/products/index.jsx";
-import './styles.css'
-import { Navbar } from '@material-tailwind/react';
-import {color} from "framer-motion";
+import './style.css'
+
 
 const MyOrder = () => {
     const context = useContext(ShoppingCartContext)

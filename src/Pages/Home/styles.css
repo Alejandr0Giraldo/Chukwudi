@@ -1,3 +1,83 @@
 .section-home {
     width: 95%;
 }
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px;
+}
+.chuckwudi-container{
+    display: flex;
+}
+.chuckwudi{
+    font-weight: bold;
+    font-size: xx-large;
+    margin-right: 8px;
+}
+.input{
+    display: block;
+    width: 100%;
+    margin: 6px;
+    color: black;
+    border: 1px rgb(128, 128, 128) solid;
+    border-radius: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.input:focus{
+    outline: none;
+}
+.shopping-cart{
+    cursor: pointer;
+    width: 40px;
+    margin: 10px;
+}
+.responsive{
+    display: block;
+    width: 100%;
+    margin: 6px;
+    color: black;
+    border: 1px rgb(128, 128, 128) solid;
+    border-radius: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.header-container{
+    width: 100%;
+    background: rgba(189, 189, 181, 0.31);
+    display: flex;
+    margin: 10px;
+    place-content: space-between;
+    border-radius: 50px;
+}
+.image{
+    margin-left: 10px;
+}
+.image-header{
+    overflow: visible;
+    margin-top: -20px;
+
+}
+
+
+
+
+
+
+@media only screen and (max-width: 600px){
+    .input{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .responsive{
+        display: none;
+
+    }
+}

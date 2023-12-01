@@ -108,9 +108,11 @@
 .container-checkout{
     background: gold;
     width: 100vh;
+    height: 60px;
     display: flex;
     border-radius: 100px;
     margin: 10px;
+    justify-content: center;
 }
 .checkout{
     padding: 10px;
