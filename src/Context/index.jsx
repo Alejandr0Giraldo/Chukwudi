@@ -9,9 +9,11 @@ export const ShoppingCartProvider = ({children}) => {
     const [count, setCount] = useState(0)
 
     const [showOrder, setShowOrder] = useState(false)
-    const toggleOrder = () => {
-        setShowOrder(!showOrder)
-    }
+
+    const openShopppingCart = () => setShowOrder(true)
+
+    const closeShoppingCart = () => setShowOrder(false)
+
 
     const [searchProduct, setSearchProduct] = useState('')
     const handleSearchChange = (e) => {
@@ -33,9 +35,9 @@ export const ShoppingCartProvider = ({children}) => {
     }
 
     // My Order . products
-    const [order, setOrder] = useState([])
-    const addToOrder = (product) => {
-        setOrder([...order, product])
+    const [cartItems, setCartItems] = useState([])
+    const addToCart = (item) => {
+        setCartItems([...cartItems, item])
     }
 
 
@@ -43,7 +45,8 @@ export const ShoppingCartProvider = ({children}) => {
         < ShoppingCartContext.Provider value={{    
             count,
             setCount,
-            toggleOrder,
+            openShopppingCart,
+            closeShoppingCart,
             showOrder,
             setShowOrder,
             searchProduct,
@@ -55,9 +58,9 @@ export const ShoppingCartProvider = ({children}) => {
             setAmountProduct,
             incrementAmount,
             decrementAmount,
-            order,
-            setOrder,
-            addToOrder,
+            cartItems,
+            setCartItems,
+            addToCart,
 
         }}>
             {children}

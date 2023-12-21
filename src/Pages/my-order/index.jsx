@@ -1,6 +1,8 @@
 import { ShoppingCartContext } from "../../Context/index.jsx";
 import {useContext} from "react";
-import Products from "../../Components/products/index.jsx";
+import {XMarkIcon} from "@heroicons/react/24/solid";
+
+// import Products from "../../Components/products/index.jsx";
 import './style.css'
 
 
@@ -19,6 +21,12 @@ const MyOrder = () => {
     return (
         <aside className='aside'>
             <div className='navbar'>
+                <div
+                    onClick={context.closeShoppingCart}
+                    className='x-icon'
+                >
+                    <XMarkIcon></XMarkIcon>
+                </div>
                 <div className=' products'>
                     <span>{context.setCartProducts.length}</span>
                 </div>
@@ -51,20 +59,7 @@ const MyOrder = () => {
             </div>
             <div className='container-products-cart'>
                 <div className='products-cart'>
-                    {
-                        context.order.map((item) => (
-                            <Products
-                                key={item.id}
-                                name={item.name}
-                                qualification={item.qualification}
-                                time={item.time}
-                                price={item.price}
-                                image={item.image}
-                                id_category={item.id_category}
 
-                            />
-                        ))
-                    }
                 </div>
                 <div className='amount-persons'>
                     <p className='persons'>Persons</p>

@@ -13,6 +13,11 @@
     justify-self: end;
     align-items: center;
 }
+.x-icon{
+    width: 10%;
+    cursor: pointer;
+}
+
 .products{
     margin: 6%;
     background: gold;

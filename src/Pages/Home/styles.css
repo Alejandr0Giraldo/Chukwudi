@@ -64,6 +64,54 @@
 
 }
 
+.header-delivery-days{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header-delivery-days > p {
+    display: flex;
+    font-size: x-large;
+}
+
+.header-delivery-days > p > img{
+    display: flex;
+    height: 35px;
+    margin-left: 15px;
+}
+.container-more{
+    display: flex;
+    margin-right: 14px;
+    align-items: flex-end;
+}
+.container-more > a{
+    display: flex;
+    margin: 6px;
+}
+.arrow-more{
+    width: 20px;
+    margin-left: 10px;
+}
+
+.section-delivery{
+    display: flex;
+    margin: 10px;
+    place-content: space-between;
+}
+.restaurant-container > p{
+    display: flex;
+    height: 25px;
+    font-size: x-large;
+}
+.burger {
+    height: 30px;
+    margin-left: 10px;
+}
+.button-delivery{
+    display: flex;
+    align-items: center;
+}
 
 
 

@@ -25,7 +25,7 @@ const Home = () => {
 
             />
             <div
-                onClick={context.toggleOrder}
+                onClick={context.openShopppingCart}
                 className='shopping-cart'>
                 <img className='' src='../../../icons/shopping-cart.png' alt='shopping cart'/>
             </div>
@@ -41,25 +41,25 @@ const Home = () => {
                 <div className='image '>
                     <img src="../images/headerimage.png" alt="" className='header-image' />
                 </div>
-                <div className='flex flex-col justify-center items-center'>
-                    <p className='flex text-3xl '>$0 delivery for 30 days!
-                        <img src="../images/d.png" alt="" className='flex h-10 ml-5' />
+                <div className='header-delivery-days'>
+                    <p className=''>$0 delivery for 30 days!
+                        <img src="../images/d.png" alt="" className='' />
                     </p>
                     <p>$0 delivery fee for orders over $10 for 30 days</p>
                 </div>
-                <div className='m-3 flex flex-wrap items-center mr-7 content-end '>
-                    <a href="#" className='flex m-2'>Learn more<img src="../icons/109617.svg" alt="" className='w-5 ml-2 ' /></a>
+                <div className='container-more'>
+                    <a href="#" className=''>Learn more<img src="../icons/109617.svg" alt="" className='arrow-more' /></a>
                 </div>
             </div>
         </article>
         <article>
-            <div className='m-6 flex place-content-between'>
-                <div className=''>
-                    <p className='flex'>Restaurants <img src="../icons/1046784.svg" alt="" className='w-4 ml-2'/></p>
+            <div className='section-delivery'>
+                <div className='restaurant-container'>
+                    <p className=''>Restaurants <img src="../icons/1046784.svg" alt="" className='burger'/></p>
                 </div>
-                <button className='flex content-center'>
-                    <div className='max-w-md  bg-orange-600 flex rounded-full items-center p-2 '>
-                        <div><img src="../icons/149316.svg" alt="" className='w-5 m-2 invert '/></div>
+                <button className=''>
+                    <div className='button-delivery'>
+                        <img src="../icons/149316.svg" alt="" className='w-5 m-2 invert '/>
                         <div className='flex'>
                             <p className='text-slate-200'>Delivery:</p><span className='font-bold text-slate-200 ml-2'>Now</span>
                         </div>

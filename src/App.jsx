@@ -9,8 +9,8 @@ function App() {
   return (
       <ShoppingCartProvider>
           <div className='flex'>
-              <Home />
-              <MyOrder />
+              <Home  />
+              <MyOrder  />
           </div>
       </ShoppingCartProvider>
 
