@@ -22,10 +22,7 @@
     color: black;
     border: 1px rgb(128, 128, 128) solid;
     border-radius: 100px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px 10px 5px 5px;
 }
 .input:focus{
     outline: none;
@@ -42,26 +39,25 @@
     color: black;
     border: 1px rgb(128, 128, 128) solid;
     border-radius: 100px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px 10px 5px 5px;
+
 }
 .header-container{
     width: 100%;
     background: rgba(189, 189, 181, 0.31);
     display: flex;
-    margin: 10px;
+    margin: 70px 20px;
     place-content: space-between;
     border-radius: 50px;
+
 }
 .image{
     margin-left: 10px;
 }
-.image-header{
-    overflow: visible;
-    margin-top: -20px;
 
+.header-image{
+    overflow: visible;
+    margin-top: -50px;
 }
 
 .header-delivery-days{
@@ -111,16 +107,59 @@
 .button-delivery{
     display: flex;
     align-items: center;
+    background: #fd6123;
+    border-radius: 100px;
+    padding: 6px;
+}
+.button-delivery > img{
+    width: 20px;
+    margin: 6px;
+}
+.delivery-container-button{
+    display: flex;
+}
+.delivery-container-button > p {
+    color: white;
+}
+.delivery-container-button > span{
+    color: white;
+    margin-left: 6px;
+    font-weight: bold;
+}
+.arrow-delivery{
+    width: 10px;
+    margin: 5px;
+    rotate: 90deg;
+    filter: invert(1);
+}
+.products-home{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 60vh));
+    margin: 6px;
+    width: fit-content;
 }
 
 
+@media only screen and (max-width: 1080px){
+    .products-home{
+        grid-template-columns: repeat(2, minmax(0, 60vh));
 
+    }
+}
 
 
 @media only screen and (max-width: 600px){
     .input{
         display: none;
     }
+    .products-home{
+        grid-template-columns: repeat(1, minmax(0, 60vh));
+
+    }
+    .header-image{
+        display: none;
+    }
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -128,4 +167,6 @@
         display: none;
 
     }
+
+
 }

@@ -38,7 +38,7 @@ const Home = () => {
                 onChange={context.handleSearchChange}
             />
             <div className='header-container'>
-                <div className='image '>
+                <div className='image'>
                     <img src="../images/headerimage.png" alt="" className='header-image' />
                 </div>
                 <div className='header-delivery-days'>
@@ -55,26 +55,26 @@ const Home = () => {
         <article>
             <div className='section-delivery'>
                 <div className='restaurant-container'>
-                    <p className=''>Restaurants <img src="../icons/1046784.svg" alt="" className='burger'/></p>
+                    <p >Restaurants <img src="../icons/1046784.svg" alt="" className='burger'/></p>
                 </div>
-                <button className=''>
+                <button >
                     <div className='button-delivery'>
-                        <img src="../icons/149316.svg" alt="" className='w-5 m-2 invert '/>
-                        <div className='flex'>
-                            <p className='text-slate-200'>Delivery:</p><span className='font-bold text-slate-200 ml-2'>Now</span>
+                        <img src="../icons/149316.svg" alt=""/>
+                        <div className='delivery-container-button'>
+                            <p >Delivery:</p><span >Now</span>
                         </div>
-                        <div className=' '><img src="../icons/118740.svg" alt="" className='w-3 m-2 rotate-90 invert'/></div>
+                        <div><img src="../icons/118740.svg" alt="" className='arrow-delivery'/></div>
                     </div>
                 </button>
             </div>
         </article>
         <article >
-            <div className="">
+            <div >
                 <CategorySlide  categories={categories} />
             </div>
         </article>
         <article>
-            <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 m-4 max-w-full object-cover overflow-hidden">
+            <div  className="products-home">
                 {products.map(item => (
                 <Products
                     key={item.id}
