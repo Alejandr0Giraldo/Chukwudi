@@ -1,22 +1,23 @@
 // import React from "react";
 import categories from "../../../categories.json";
 import { motion } from "framer-motion";
+import "./styles.css"
 
 const CategorySlide = () => {
     return (
-        <motion.div className='overflow-hidden m-0 w-auto max-md:mr-2'>
+        <motion.div className='container'>
             <motion.div
-                className='flex cursor-grab gap-4'
+                className='slide'
                 drag='x' dragConstraints={{right:0, left:-385}}
             >
                 {categories.map((item) => (
                     // eslint-disable-next-line react/jsx-key
-                    <div key={item.id} className='bg-white w-auto p-2 rounded-full hover:bg-amber-300 '>
-                        <div className='flex flex-col items-center'>
-                            <div className='bg-white overflow-hidden p-2 w-20 rounded-full'>
+                    <div key={item.id} className='container-categories'>
+                        <div className='text'>
+                            <div className='container-image'>
                                 <img  src={item.icon} alt={`${item.name} icon`} className=' '/>
                             </div>
-                            <p className=' mt-8 '>{item.name}</p>
+                            <p className=' name'>{item.name}</p>
                         </div>
                     </div>
                 ))}
