@@ -1,8 +1,14 @@
 import categories from '../../../categories.json'
 import {PlusIcon} from "@heroicons/react/20/solid/index.js";
 import './styles.css'
+import { ShoppingCartContext } from "../../Context/index.jsx";
+import {useContext} from "react";
+
 // eslint-disable-next-line react/prop-types
-const  Product = ({ name, qualification, time, price, image, id_category, addToCart }) => {
+const  Product = ({ name, qualification, time, price, image, id_category, id_product }) => {
+
+    const context = useContext(ShoppingCartContext)
+
     let name_category = ''
     categories.map((item) => {
             if (id_category === item.id ){
@@ -15,9 +21,15 @@ const  Product = ({ name, qualification, time, price, image, id_category, addToC
         <div className='container-card'>
             <div className='container-img'>
                 <span className='delivery-time'>{time} </span>
-                <img src={image} alt="" className='img ' />
+                <img src={image} alt="" className='img' />
                 <div
-                    onClick={() => addToCart(name)}
+                    onClick={() => context.addToCart({
+                        name,
+                        id_product,
+                        image,
+                        price,
+                        quantity: 1
+                    })}
                     className='icon-plus'>
                     <PlusIcon className='plus'></PlusIcon>
                 </div>

@@ -6,11 +6,11 @@ export const ShoppingCartContext = createContext()
 // eslint-disable-next-line react/prop-types
 export const ShoppingCartProvider = ({children}) => {
 
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(1)
 
     const [showOrder, setShowOrder] = useState(false)
 
-    const openShopppingCart = () => setShowOrder(true)
+    const openShoppingCart = () => setShowOrder(true)
 
     const closeShoppingCart = () => setShowOrder(false)
 
@@ -37,15 +37,40 @@ export const ShoppingCartProvider = ({children}) => {
     // My Order . products
     const [cartItems, setCartItems] = useState([])
     const addToCart = (item) => {
-        setCartItems([...cartItems, item])
+        let foundedItem = null
+        let duplicateCartItem = [...cartItems]
+
+        //Recorrer los productos del shopping cart
+        cartItems.map((pepito, index) => {
+            //comparar el id de pepito si es igual con el id de item para agregar, para saber si el producto esta repetido en el Sopping cart
+            if (pepito.id_product === item.id_product){
+                //encontrar la posicion del producto repetido
+                foundedItem = index
+            }
+        })
+
+        //si no se encontro ningun producto repetido, agrego el producto deseado
+        if (foundedItem === null) {
+            setCartItems([...cartItems, item])
+        }
+        //si hay un producto repetido y aqui se actualiza la cantidad del producto
+        else {
+            duplicateCartItem[foundedItem].quantity = duplicateCartItem[foundedItem].quantity + 1
+            setCartItems([...duplicateCartItem])
+        }
     }
+
+
+
+
+
 
 
     return (
         < ShoppingCartContext.Provider value={{    
             count,
             setCount,
-            openShopppingCart,
+            openShoppingCart,
             closeShoppingCart,
             showOrder,
             setShowOrder,

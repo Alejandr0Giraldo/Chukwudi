@@ -4,6 +4,8 @@ import {XMarkIcon} from "@heroicons/react/24/solid";
 
 // import Products from "../../Components/products/index.jsx";
 import './style.css'
+import ProductsCart from "../../Components/ProductsCart/index.jsx";
+
 
 
 const MyOrder = () => {
@@ -12,11 +14,14 @@ const MyOrder = () => {
     let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
     if (index === 'last') index = context.order?.length - 1
 
-
+    const cartItems = context.cartItems
+    console.log('cartItems', cartItems)
 
     if (!context.showOrder){
         return null
     }
+
+
 
     return (
         <aside className='aside'>
@@ -28,7 +33,7 @@ const MyOrder = () => {
                     <XMarkIcon></XMarkIcon>
                 </div>
                 <div className=' products'>
-                    <span>{context.setCartProducts.length}</span>
+                    <span>{context.cartItems.length}</span>
                 </div>
                 <div>
                     <div className='user' >
@@ -59,15 +64,16 @@ const MyOrder = () => {
             </div>
             <div className='container-products-cart'>
                 <div className='products-cart'>
-
-                </div>
-                <div className='amount-persons'>
-                    <p className='persons'>Persons</p>
-                    <div className='container-products-persons'>
-                        <button className='increment' onClick={context.incrementAmount}>+</button>
-                        <div className='amount-product'> {context.amountProduct}</div>
-                        <button className='decrement' onClick={context.decrementAmount}>-</button>
-                    </div>
+                    {cartItems.map(item => (
+                            <ProductsCart
+                                id_product={item.id}
+                                key={item.id}
+                                name={item.name}
+                                price={item.price}
+                                image={item.image}
+                                quantity={item.quantity}
+                            />
+                ))}
                 </div>
             </div>
             <div className=' container-total'>

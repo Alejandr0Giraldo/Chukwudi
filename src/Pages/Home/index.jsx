@@ -25,7 +25,7 @@ const Home = () => {
 
             />
             <div
-                onClick={context.openShopppingCart}
+                onClick={context.openShoppingCart}
                 className='shopping-cart'>
                 <img className='' src='../../../icons/shopping-cart.png' alt='shopping cart'/>
             </div>
@@ -77,6 +77,7 @@ const Home = () => {
             <div  className="products-home">
                 {products.map(item => (
                 <Products
+                    id_product={item.id}
                     key={item.id}
                     name={item.name}
                     qualification={item.qualification}
@@ -84,7 +85,6 @@ const Home = () => {
                     price={item.price}
                     image={item.image}
                     id_category={item.id_category}
-
                 />
                 ))}
             </div>

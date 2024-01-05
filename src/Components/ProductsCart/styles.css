@@ -1,0 +1,40 @@
+
+.amount-persons{
+    display: flex;
+    flex-direction: column;
+}
+.persons{
+    padding: 10px;
+    margin-bottom: -10px;
+}
+.container-products-persons{
+    display: flex;
+    border: black 2px solid;
+    border-radius: 10px;
+    width: fit-content;
+    margin-left: 10px;
+}
+
+.increment, .amount-product, .decrement {
+    padding: 8px;
+}
+.container-products-cart{
+    display: grid;
+    padding: 0;
+    margin-bottom: 15px;
+}
+.productCart{
+    display: grid;
+    grid-template-columns: 100px 190px 70px 50px;
+
+}
+.productCart div {
+    margin: 1px 5px 0 5px;
+}
+.productCart img {
+    width: 90px;
+    border-radius: 10px;
+}
+.name-product{
+    width: 150px;
+}
