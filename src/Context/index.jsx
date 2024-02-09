@@ -6,7 +6,6 @@ export const ShoppingCartContext = createContext()
 // eslint-disable-next-line react/prop-types
 export const ShoppingCartProvider = ({children}) => {
 
-    const [count, setCount] = useState(1)
 
     const [showOrder, setShowOrder] = useState(false)
 
@@ -18,20 +17,6 @@ export const ShoppingCartProvider = ({children}) => {
     const [searchProduct, setSearchProduct] = useState('')
     const handleSearchChange = (e) => {
         setSearchProduct(e.target.value)
-    }
-
-    //amount products
-    const [cartProducts, setCartProducts] = useState([])
-
-    //increment products
-    const [amountProduct, setAmountProduct] = useState(0)
-    const incrementAmount = () => {
-        setAmountProduct(amountProduct + 1)
-    }
-    const decrementAmount = () => {
-        if (amountProduct > 0) {
-            setAmountProduct(amountProduct - 1)
-        }
     }
 
     // My Order . products
@@ -60,6 +45,46 @@ export const ShoppingCartProvider = ({children}) => {
         }
     }
 
+    // sumar cantidades al producto 
+    const incrementProducts = (id_product) => {
+        let duplicateCartItem = [...cartItems]
+        let foundItem = cartItems.findIndex(item => {
+            if (item.id_product === id_product) {
+                return true
+            }
+        })
+        duplicateCartItem[foundItem].quantity = duplicateCartItem[foundItem].quantity + 1
+        setCartItems([...duplicateCartItem])
+    }
+
+    //decrement amount
+    const decrementAmount = (id_product) => {
+        let duplicateCartItem = [...cartItems]
+        //encontrar la posicion del item
+        let foundItem = cartItems.findIndex(item => {
+            //valida si id_product del item es igual al id_product del json
+            if (item.id_product === id_product){
+                return true
+            }
+        })
+        // valida si la cantidad en mayor a 1 y actualiza la cantidad, si es menor a 1 no actualiza
+        if (duplicateCartItem[foundItem].quantity > 1){
+            //disminuye la cantidad encontrando la posicion del item
+            duplicateCartItem[foundItem].quantity = duplicateCartItem[foundItem].quantity - 1
+            //actualiza cart items
+            setCartItems([...duplicateCartItem])
+        }
+    }
+
+    //muestra lo que se escribe en el input
+    const [inputValue, setInputValue] = useState('')
+    const handleInputChange = (event) => {
+        const newValue = event.target.value
+        setInputValue(newValue)
+        console.log(newValue, 'newValue')
+    }
+
+
 
 
 
@@ -68,8 +93,6 @@ export const ShoppingCartProvider = ({children}) => {
 
     return (
         < ShoppingCartContext.Provider value={{    
-            count,
-            setCount,
             openShoppingCart,
             closeShoppingCart,
             showOrder,
@@ -77,17 +100,17 @@ export const ShoppingCartProvider = ({children}) => {
             searchProduct,
             setSearchProduct,
             handleSearchChange,
-            cartProducts,
-            setCartProducts,
-            amountProduct,
-            setAmountProduct,
-            incrementAmount,
-            decrementAmount,
             cartItems,
             setCartItems,
             addToCart,
+            incrementProducts,
+            decrementAmount,
+            setInputValue,
+            inputValue,
+            handleInputChange
 
         }}>
+        
             {children}
         </ShoppingCartContext.Provider>
 

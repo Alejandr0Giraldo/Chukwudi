@@ -15,12 +15,10 @@ const MyOrder = () => {
     if (index === 'last') index = context.order?.length - 1
 
     const cartItems = context.cartItems
-    console.log('cartItems', cartItems)
 
     if (!context.showOrder){
         return null
     }
-
 
 
     return (
@@ -66,12 +64,12 @@ const MyOrder = () => {
                 <div className='products-cart'>
                     {cartItems.map(item => (
                             <ProductsCart
-                                id_product={item.id}
-                                key={item.id}
+                                key={item.id_product}
                                 name={item.name}
                                 price={item.price}
                                 image={item.image}
                                 quantity={item.quantity}
+                                id_product={item.id_product}
                             />
                 ))}
                 </div>

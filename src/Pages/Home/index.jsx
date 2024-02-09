@@ -10,6 +10,15 @@ import './styles.css'
 const Home = () => {
     const context = useContext(ShoppingCartContext)
 
+    //filtrar mediante el input
+    let listProducts = [...products]
+    const filteredProducts = (valueSearch) => {
+        let productsFiltered = listProducts.filter(product => product.name.toLowerCase().includes(valueSearch.toLowerCase()))
+        console.log(productsFiltered, 'productsFiltered')
+        listProducts = [...productsFiltered]
+    }
+    console.log(context.inputValue, 'inputValue')
+    filteredProducts(context.inputValue)
 
     return (
     <section  className='section-home'>
@@ -21,8 +30,8 @@ const Home = () => {
                 value={context.inputValue}
                 onChange={context.handleInputChange}
                 className="input"
-                placeholder="search" type="text"
-
+                placeholder="search"
+                type="text"
             />
             <div
                 onClick={context.openShoppingCart}
@@ -32,10 +41,10 @@ const Home = () => {
         </div>
         <article>
             <input
+                value={context.inputValue}
+                onChange={context.handleInputChange}
                 className="responsive"
                 placeholder="search" type="text"
-                value={context.searchProduct}
-                onChange={context.handleSearchChange}
             />
             <div className='header-container'>
                 <div className='image'>
@@ -75,9 +84,9 @@ const Home = () => {
         </article>
         <article>
             <div  className="products-home">
-                {products.map(item => (
+                {listProducts.map(item => (
                 <Products
-                    id_product={item.id}
+                    id_product={item.id_product}
                     key={item.id}
                     name={item.name}
                     qualification={item.qualification}

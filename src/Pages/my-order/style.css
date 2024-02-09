@@ -1,9 +1,12 @@
 
 .aside{
     background: rgb(250, 250, 248);
-    width: 30%;
+    width: 70vh;
     height: 100%;
-    margin-left: 4rem;
+    position: fixed;
+    right: 0;
+    overflow: scroll;
+    overflow-x: hidden;
 
 }
 .navbar{
