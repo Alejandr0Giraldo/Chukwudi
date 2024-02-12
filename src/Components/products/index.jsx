@@ -22,7 +22,7 @@ const  Product = ({ name, qualification, time, price, image, id_category, id_pro
             <div className='container-img'>
                 <span className='delivery-time'>{time} </span>
                 <img src={image} alt="" className='img' />
-                <div
+                <div key={id_product}
                     onClick={() => context.addToCart({
                         name,
                         id_product,

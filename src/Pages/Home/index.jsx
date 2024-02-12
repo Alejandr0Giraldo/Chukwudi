@@ -14,10 +14,8 @@ const Home = () => {
     let listProducts = [...products]
     const filteredProducts = (valueSearch) => {
         let productsFiltered = listProducts.filter(product => product.name.toLowerCase().includes(valueSearch.toLowerCase()))
-        console.log(productsFiltered, 'productsFiltered')
         listProducts = [...productsFiltered]
     }
-    console.log(context.inputValue, 'inputValue')
     filteredProducts(context.inputValue)
 
     return (

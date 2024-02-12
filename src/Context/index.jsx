@@ -21,40 +21,28 @@ export const ShoppingCartProvider = ({children}) => {
 
     // My Order . products
     const [cartItems, setCartItems] = useState([])
-    const addToCart = (item) => {
-        let foundedItem = null
-        let duplicateCartItem = [...cartItems]
+    const addToCart = (product) => {
 
-        //Recorrer los productos del shopping cart
-        cartItems.map((pepito, index) => {
-            //comparar el id de pepito si es igual con el id de item para agregar, para saber si el producto esta repetido en el Sopping cart
-            if (pepito.id_product === item.id_product){
-                //encontrar la posicion del producto repetido
-                foundedItem = index
-            }
-        })
-
-        //si no se encontro ningun producto repetido, agrego el producto deseado
-        if (foundedItem === null) {
-            setCartItems([...cartItems, item])
-        }
-        //si hay un producto repetido y aqui se actualiza la cantidad del producto
-        else {
-            duplicateCartItem[foundedItem].quantity = duplicateCartItem[foundedItem].quantity + 1
-            setCartItems([...duplicateCartItem])
+        const existingProduct = cartItems.find(item => item.id_product === product.id_product)
+        if (existingProduct) {
+            // Si el producto ya está en el carrito, puedes actualizar la cantidad
+            setCartItems(cartItems.map(item => (item.id_product === product.id_product ? { ...item, quantity: item.quantity + 1 } : item)));
+        } else {
+            // Si el producto no está en el carrito, agrégalo
+            setCartItems([...cartItems, { ...product, quantity: 1 }]);
         }
     }
 
     // sumar cantidades al producto 
     const incrementProducts = (id_product) => {
-        let duplicateCartItem = [...cartItems]
+        let duplicateItem = [...cartItems]
         let foundItem = cartItems.findIndex(item => {
             if (item.id_product === id_product) {
                 return true
             }
         })
-        duplicateCartItem[foundItem].quantity = duplicateCartItem[foundItem].quantity + 1
-        setCartItems([...duplicateCartItem])
+        duplicateItem[foundItem].quantity = duplicateItem[foundItem].quantity + 1
+        setCartItems([...duplicateItem])
     }
 
     //decrement amount
@@ -81,7 +69,6 @@ export const ShoppingCartProvider = ({children}) => {
     const handleInputChange = (event) => {
         const newValue = event.target.value
         setInputValue(newValue)
-        console.log(newValue, 'newValue')
     }
 
 
@@ -107,7 +94,7 @@ export const ShoppingCartProvider = ({children}) => {
             decrementAmount,
             setInputValue,
             inputValue,
-            handleInputChange
+            handleInputChange,
 
         }}>
         
