@@ -6,14 +6,13 @@ export const ShoppingCartContext = createContext()
 // eslint-disable-next-line react/prop-types
 export const ShoppingCartProvider = ({children}) => {
 
-
     const [showOrder, setShowOrder] = useState(false)
-
+    //Abrir ShoppingCart
     const openShoppingCart = () => setShowOrder(true)
-
+    //Cerrar ShoppingCart
     const closeShoppingCart = () => setShowOrder(false)
 
-
+    //valor del searchInput
     const [searchProduct, setSearchProduct] = useState('')
     const handleSearchChange = (e) => {
         setSearchProduct(e.target.value)
@@ -22,18 +21,19 @@ export const ShoppingCartProvider = ({children}) => {
     // My Order . products
     const [cartItems, setCartItems] = useState([])
     const addToCart = (product) => {
-
         const existingProduct = cartItems.find(item => item.id_product === product.id_product)
         if (existingProduct) {
             // Si el producto ya está en el carrito, puedes actualizar la cantidad
             setCartItems(cartItems.map(item => (item.id_product === product.id_product ? { ...item, quantity: item.quantity + 1 } : item)));
+
         } else {
             // Si el producto no está en el carrito, agrégalo
             setCartItems([...cartItems, { ...product, quantity: 1 }]);
         }
     }
 
-    // sumar cantidades al producto 
+
+    // sumar cantidades al producto
     const incrementProducts = (id_product) => {
         let duplicateItem = [...cartItems]
         let foundItem = cartItems.findIndex(item => {
@@ -45,7 +45,7 @@ export const ShoppingCartProvider = ({children}) => {
         setCartItems([...duplicateItem])
     }
 
-    //decrement amount
+    // decrement amount
     const decrementAmount = (id_product) => {
         let duplicateCartItem = [...cartItems]
         //encontrar la posicion del item
@@ -64,6 +64,9 @@ export const ShoppingCartProvider = ({children}) => {
         }
     }
 
+    //searchByCategory
+    const [searchCategory, setSearchCategory] = useState('')
+
     //muestra lo que se escribe en el input
     const [inputValue, setInputValue] = useState('')
     const handleInputChange = (event) => {
@@ -71,12 +74,16 @@ export const ShoppingCartProvider = ({children}) => {
         setInputValue(newValue)
     }
 
+    //Eliminar productos del carrito
+    const handleDelete = (id) => {
+        const filteredProducts = cartItems.filter(product => product.id_product !== id)
+        setCartItems(filteredProducts)
+    }
 
-
-
-
-
-
+    //Calcular el total del precio dependiendo las cantitades
+    const calculateTotalProducts = () => {
+        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    }
 
     return (
         < ShoppingCartContext.Provider value={{    
@@ -95,6 +102,11 @@ export const ShoppingCartProvider = ({children}) => {
             setInputValue,
             inputValue,
             handleInputChange,
+            handleDelete,
+            calculateTotalProducts,
+            searchCategory,
+            setSearchCategory,
+
 
         }}>
         

@@ -5,7 +5,7 @@ import { ShoppingCartContext } from "../../Context/index.jsx";
 import {useContext} from "react";
 
 // eslint-disable-next-line react/prop-types
-const  Product = ({ name, qualification, time, price, image, id_category, id_product }) => {
+const  Product = ({ name, qualification, time, price, image, id_category, id_product,  }) => {
 
     const context = useContext(ShoppingCartContext)
 
@@ -22,7 +22,7 @@ const  Product = ({ name, qualification, time, price, image, id_category, id_pro
             <div className='container-img'>
                 <span className='delivery-time'>{time} </span>
                 <img src={image} alt="" className='img' />
-                <div key={id_product}
+                <div
                     onClick={() => context.addToCart({
                         name,
                         id_product,

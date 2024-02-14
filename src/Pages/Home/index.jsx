@@ -18,6 +18,8 @@ const Home = () => {
     }
     filteredProducts(context.inputValue)
 
+
+
     return (
     <section  className='section-home'>
         <div className='nav'>
@@ -84,7 +86,7 @@ const Home = () => {
             <div  className="products-home">
                 {listProducts.map(item => (
                 <Products
-                    id_product={item.id_product}
+                    id_product={item.id}
                     key={item.id}
                     name={item.name}
                     qualification={item.qualification}

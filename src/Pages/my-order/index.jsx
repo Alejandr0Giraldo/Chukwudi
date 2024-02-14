@@ -1,19 +1,11 @@
 import { ShoppingCartContext } from "../../Context/index.jsx";
 import {useContext} from "react";
 import {XMarkIcon} from "@heroicons/react/24/solid";
-
-// import Products from "../../Components/products/index.jsx";
 import './style.css'
 import ProductsCart from "../../Components/ProductsCart/index.jsx";
-import {totalPrice} from "../../utils.js";
-
 
 
 const MyOrder = () => {
-    const calculateTotalProducts = () => {
-        return context.cartItems.reduce((total, item) => total + item.price, 0);
-    }
-
     const context = useContext(ShoppingCartContext)
     const currentPath = window.location.pathname
     let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
@@ -24,7 +16,6 @@ const MyOrder = () => {
     if (!context.showOrder){
         return null
     }
-
 
     return (
         <aside className='aside'>
@@ -82,7 +73,7 @@ const MyOrder = () => {
             <div className=' container-total'>
                 <div className='total'>
                     <p className=''>Total: </p>
-                    <p> ${calculateTotalProducts()}</p>
+                    <p> ${context.calculateTotalProducts()}</p>
                 </div>
                 <div className='section-checkout'>
                     <div className='container-checkout'>

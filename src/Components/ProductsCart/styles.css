@@ -2,6 +2,7 @@
 .amount-persons{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .persons{
     padding: 10px;
@@ -37,4 +38,9 @@
 }
 .name-product{
     width: 150px;
+}
+.handleDelete{
+    cursor: pointer;
+    color: red;
+    width: 20px;
 }

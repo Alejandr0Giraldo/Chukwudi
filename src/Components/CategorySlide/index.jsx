@@ -2,10 +2,18 @@
 import categories from "../../../categories.json";
 import { motion } from "framer-motion";
 import "./styles.css"
+import { ShoppingCartContext } from "../../Context/index.jsx";
+import {useContext} from "react";
+
 
 const CategorySlide = () => {
+    const context = useContext(ShoppingCartContext)
+
+
     return (
-        <motion.div className='container'>
+        <motion.div
+
+            className='container'>
             <motion.div
                 className='slide'
                 drag='x' dragConstraints={{right:0, left:-385}}
