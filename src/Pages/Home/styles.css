@@ -157,6 +157,19 @@
     .header-image{
         display: none;
     }
+    .header-container{
+        height: 200px;
+        margin-left: 6px;
+
+    }
+    .header-delivery-days {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .container-more a{
+        display: none;
+    }
 
 }
 

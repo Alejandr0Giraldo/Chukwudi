@@ -1,7 +1,7 @@
 import './styles.css'
 import {useContext} from "react";
 import {ShoppingCartContext} from "../../Context/index.jsx";
-import {XCircleIcon} from "@heroicons/react/20/solid/index.js";
+import {TrashIcon} from "@heroicons/react/20/solid/index.js";
 // import {checkNavigable} from "react-slick/lib/utils/innerSliderUtils.js";
 
 const ProductsCart = ({image, price, name, quantity, id_product}) => {
@@ -13,7 +13,7 @@ const ProductsCart = ({image, price, name, quantity, id_product}) => {
                 <div className='name-product'>{name}</div>
                 <div>{price}</div>
                 <div className='amount-persons'>
-                    <XCircleIcon className='handleDelete' onClick={() => context.handleDelete(id_product)}>X</XCircleIcon>
+                    <TrashIcon className='handleDelete' onClick={() => context.handleDelete(id_product)}>X</TrashIcon>
 
                     <p className='persons'>Quantity</p>
                     <div className='container-products-persons'>

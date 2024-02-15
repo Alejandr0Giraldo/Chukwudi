@@ -113,3 +113,9 @@
     width: 25px;
     margin-left: 8px;
 }
+@media only screen and (max-width: 600px) {
+    .aside{
+        width: 100%;
+
+    }
+}
