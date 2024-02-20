@@ -64,9 +64,6 @@ export const ShoppingCartProvider = ({children}) => {
         }
     }
 
-    //searchByCategory
-    const [searchCategory, setSearchCategory] = useState('')
-
     //muestra lo que se escribe en el input
     const [inputValue, setInputValue] = useState('')
     const handleInputChange = (event) => {
@@ -84,6 +81,8 @@ export const ShoppingCartProvider = ({children}) => {
     const calculateTotalProducts = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     }
+
+
     
     return (
         < ShoppingCartContext.Provider value={{    
@@ -104,10 +103,6 @@ export const ShoppingCartProvider = ({children}) => {
             handleInputChange,
             handleDelete,
             calculateTotalProducts,
-            searchCategory,
-            setSearchCategory,
-
-
         }}>
         
             {children}

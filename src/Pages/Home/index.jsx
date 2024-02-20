@@ -1,4 +1,4 @@
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import { ShoppingCartContext } from "../../Context/index.jsx";
 import CategorySlide from "../../Components/CategorySlide/index.jsx";
 import categories from "../../../categories.json";
@@ -10,15 +10,27 @@ import './styles.css'
 const Home = () => {
     const context = useContext(ShoppingCartContext)
 
-    //filtrar mediante el input
-    let listProducts = [...products]
+        const [listProducts, setListProducts] = useState([...products])
+
+    const initialState = () => {
+        setListProducts(products)
+    }
+
+    // Filter Search
     const filteredProducts = (valueSearch) => {
         let productsFiltered = listProducts.filter(product => product.name.toLowerCase().includes(valueSearch.toLowerCase()))
-        listProducts = [...productsFiltered]
+        setListProducts([...productsFiltered])
     }
     filteredProducts(context.inputValue)
 
-
+    //Filter Category
+    const handleCategory = (id_category) => {
+        if (id_category === 1) {
+            setListProducts(initialState)
+        }
+        let categoryFiltered = products.filter(products => products.id_category === id_category)
+        setListProducts([...categoryFiltered])
+    }
 
     return (
     <section  className='section-home'>
@@ -78,8 +90,11 @@ const Home = () => {
             </div>
         </article>
         <article >
-            <div >
-                <CategorySlide  categories={categories} />
+            <div>
+                <CategorySlide
+                    categories={categories}
+                    handleCategory={handleCategory}
+                />
             </div>
         </article>
         <article>
