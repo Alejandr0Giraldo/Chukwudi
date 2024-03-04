@@ -1,4 +1,4 @@
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import { ShoppingCartContext } from "../../Context/index.jsx";
 import CategorySlide from "../../Components/CategorySlide/index.jsx";
 import categories from "../../../categories.json";
@@ -10,26 +10,20 @@ import './styles.css'
 const Home = () => {
     const context = useContext(ShoppingCartContext)
 
-        const [listProducts, setListProducts] = useState([...products])
 
-    const initialState = () => {
-        setListProducts(products)
-    }
 
-    // Filter Search
-    const filteredProducts = (valueSearch) => {
-        let productsFiltered = listProducts.filter(product => product.name.toLowerCase().includes(valueSearch.toLowerCase()))
-        setListProducts([...productsFiltered])
-    }
-    filteredProducts(context.inputValue)
+
 
     //Filter Category
+    const initialState = () => {
+        context.setListProducts(products)
+    }
     const handleCategory = (id_category) => {
         if (id_category === 1) {
-            setListProducts(initialState)
+            context.setListProducts(initialState)
         }
         let categoryFiltered = products.filter(products => products.id_category === id_category)
-        setListProducts([...categoryFiltered])
+        context.setListProducts([...categoryFiltered])
     }
 
     return (
@@ -99,7 +93,7 @@ const Home = () => {
         </article>
         <article>
             <div  className="products-home">
-                {listProducts.map(item => (
+                { context.listProducts.map(item => (
                 <Products
                     id_product={item.id}
                     key={item.id}

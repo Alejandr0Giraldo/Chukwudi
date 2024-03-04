@@ -1,5 +1,6 @@
 
-import {createContext, useState} from 'react'
+import {createContext, useEffect, useState} from 'react'
+import products from "../../products.json";
 
 export const ShoppingCartContext = createContext()
 
@@ -24,11 +25,14 @@ export const ShoppingCartProvider = ({children}) => {
         const existingProduct = cartItems.find(item => item.id_product === product.id_product)
         if (existingProduct) {
             // Si el producto ya está en el carrito, puedes actualizar la cantidad
-            setCartItems(cartItems.map(item => (item.id_product === product.id_product ? { ...item, quantity: item.quantity + 1 } : item)));
+            setCartItems(cartItems.map(item => (item.id_product === product.id_product ? {
+                ...item,
+                quantity: item.quantity + 1
+            } : item)));
 
         } else {
             // Si el producto no está en el carrito, agrégalo
-            setCartItems([...cartItems, { ...product, quantity: 1 }]);
+            setCartItems([...cartItems, {...product, quantity: 1}]);
         }
     }
 
@@ -51,12 +55,12 @@ export const ShoppingCartProvider = ({children}) => {
         //encontrar la posicion del item
         let foundItem = cartItems.findIndex(item => {
             //valida si id_product del item es igual al id_product del json
-            if (item.id_product === id_product){
+            if (item.id_product === id_product) {
                 return true
             }
         })
         // valida si la cantidad en mayor a 1 y actualiza la cantidad, si es menor a 1 no actualiza
-        if (duplicateCartItem[foundItem].quantity > 1){
+        if (duplicateCartItem[foundItem].quantity > 1) {
             //disminuye la cantidad encontrando la posicion del item
             duplicateCartItem[foundItem].quantity = duplicateCartItem[foundItem].quantity - 1
             //actualiza cart items
@@ -82,6 +86,25 @@ export const ShoppingCartProvider = ({children}) => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     }
 
+    const [listProducts, setListProducts] = useState([...products])
+
+    // Filter Search
+    const filteredProducts = (valueSearch) => {
+        console.log(valueSearch, 'valueSearch')
+        let productsFiltered = products.filter(products => products.name.toLowerCase().includes(valueSearch.toLowerCase()))
+        setListProducts([...productsFiltered])
+
+    }
+
+    useEffect(() => {
+        if (inputValue) {
+            filteredProducts(inputValue)
+        } else if (inputValue === ''){
+            setListProducts([...products])
+        }
+    }, [inputValue]);
+
+
 
     
     return (
@@ -103,6 +126,8 @@ export const ShoppingCartProvider = ({children}) => {
             handleInputChange,
             handleDelete,
             calculateTotalProducts,
+            listProducts,
+            setListProducts,
         }}>
         
             {children}
